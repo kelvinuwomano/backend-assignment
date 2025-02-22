@@ -1,21 +1,23 @@
 const express = require("express");
 const database = require("./config/db");
-const taskRouter = require("./routes/taskRoute");
+const blogRouter = require("./routes/blogRoute");
+
 
 require("dotenv/config");
 
 const {PORT} = process.env;
 
-console.log(PORT)
+console.log(PORT);
 
 const port = PORT;
 
 const app = express();
-app.use(express.json());
 
 database();
-app.use("/api", taskRouter)
-app.listen(port, () => {
-    console.log(new Date().toLocaleDateString(), port)
-});
 
+app.use(express.json());
+app.use("/api/users", blogRouter);
+
+app.listen(port, () => {
+    console.log(new Date().toLocaleString(), port)
+})

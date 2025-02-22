@@ -6,10 +6,10 @@ const {MONGO_URL} = process.env;
 const database = async () => {
     try {
         await mongoose.connect(MONGO_URL)
-        console.log("Connected")
+        console.log("Connected");
     } catch (error) {
         console.log("An error occured", error)
     }
-}
-module.exports = database
+};
 
+module.exports = database
